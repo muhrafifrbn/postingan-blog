@@ -1,4 +1,4 @@
 <x-layout>
   <x-slot:title>{{ $title }}</x-slot:title>
-  Ini halaman About
+  <h1>Halaman {{ $title }} </h1>
 </x-layout>
