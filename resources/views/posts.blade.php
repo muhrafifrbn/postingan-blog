@@ -3,14 +3,16 @@
   <x-slot:title>{{ $title }}</x-slot:title>
   
 
-  <articel class="py-8 max-w-screen-md border-b border-gray-300">
-    <h2 class="mb-1 text-3xl tracking-tight font-bold text-gray-900 ">Judul Artikel</h2>
+  @foreach ($posts as $item)
+  <article class="py-8  border-b border-gray-300">
+    <h2 class="mb-1 text-3xl tracking-tight font-bold text-gray-900 ">{{ $item->title }}</h2>
     <div class="text-base text-gray-500"> 
-      <a href="#">Penulis </a>|4 November 2004
+      <a href="#">{{ $item->author }} </a>| {{ $item->created_at->diffforhumans() }}
     </div>
     <p class="my-4 font-light">
-      Lorem ipsum dolor sit amet consectetur adipisicing elit. Nostrum totam libero veritatis sit maiores qui, blanditiis, dolore voluptates sed consequatur sunt est voluptatum nulla ab cumque quibusdam suscipit soluta recusandae.
+      {{ Str::limit($item->body, 100, '...') }}
     </p>
-    <a href="/post/satu" class="font-medium text-blue-500 hover:underline">Read More &raquo;</a>
-  </articel>
+    <a href="/post/{{ $item->slug }}" class="font-medium text-blue-500 hover:underline">Read More &raquo;</a>
+  </article>
+  @endforeach
 </x-layout>
