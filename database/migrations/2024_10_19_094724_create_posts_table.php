@@ -14,8 +14,14 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string("title");
+            // schema to table user
             $table->foreignId('author_id')
             ->constrained(table:"users")
+            ->onUpdate('cascade')
+            ->onDelete('cascade');
+            // schema to table category
+            $table->foreignId('category_id')
+            ->constrained(table:"categories")
             ->onUpdate('cascade')
             ->onDelete('cascade');
             $table->string("slug")->unique();
