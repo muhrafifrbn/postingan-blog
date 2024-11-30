@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
         //     'email' => 'test@example.com',
         // ]);
 
+        // Memanggil file database seeder yang lain
         $this->call(CategorySeeder::class);
 
         Post::factory(50)->recycle([

@@ -23,6 +23,7 @@ class CategorySeeder extends Seeder
         Category::create([
             "name" => $webDesign,
             "slug" => Str::slug($webDesign),
+            "color" => "green"
         ]);
 
         Category::create([

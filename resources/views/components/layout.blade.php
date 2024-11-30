@@ -8,7 +8,7 @@
     <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
     {{-- Link Font --}}
     <link rel="stylesheet" href="https://rsms.me/inter/inter.css">
-    @vite('resources/css/app.css')
+    @vite(['resources/css/app.css','resources/js/app.js'])
 </head>
 <body class="h-full">
     <!--
@@ -23,7 +23,7 @@
    <x-navbar></x-navbar>
   
     <x-header>{{ $title }}</x-header>
-    <main>
+    <main class="bg-slate-100">
       <div class="mx-auto  max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
         <!-- Your content -->
         {{ $slot }}
