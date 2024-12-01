@@ -19,7 +19,7 @@ Route::get("/posts", function() {
     $posts =  Post::latest();
     $posts->Filter(request(["search", 'category', "author"]));
    
-    return view("posts", ["posts" => $posts->get(), "title" => "Posts"]);
+    return view("posts", ["posts" => $posts->paginate(10)->withQueryString(), "title" => "Posts"]);
 });
 
 Route::get("/post/{post:slug}", function(Post $post) {
